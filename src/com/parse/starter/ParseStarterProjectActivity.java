@@ -71,7 +71,7 @@ public class ParseStarterProjectActivity extends Activity {
 					public void done(com.parse.ParseException e) {
 						  Toast.makeText(getApplicationContext(), "Successfully uploaded..!",10).show();
 							imageView.setImageResource(R.drawable.defimg);
-							etext.setText(""); 
+							etext.setText("");  
 						  
 						
 					}});			
