@@ -1,5 +1,6 @@
 package com.parse.starter;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -8,9 +9,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.ParseException;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,7 +22,6 @@ import android.widget.Toast;
 
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.parse.ProgressCallback;
 import com.parse.SaveCallback;
 
 public class ParseStarterProjectActivity extends Activity {
@@ -62,6 +62,7 @@ public class ParseStarterProjectActivity extends Activity {
 					Toast.makeText(getApplicationContext(), "Enter Your Name...!",10).show();
 				}
 				else{*/
+				 Log.e("array",array+"");
 				ParseFile file = new ParseFile("img1.png", array);
 				ParseObject testobj = new ParseObject("TestObject");
 				testobj.put("name",etext.getText().toString());
@@ -70,8 +71,13 @@ public class ParseStarterProjectActivity extends Activity {
 					  @Override
 					public void done(com.parse.ParseException e) {
 						  Toast.makeText(getApplicationContext(), "Successfully uploaded..!",10).show();
-							imageView.setImageResource(R.drawable.defimg);
-							etext.setText("");  
+						  Intent i = new Intent(getApplicationContext(), Listview1.class);
+						  startActivity(i);
+						  
+						  
+						  
+						 /* imageView.setImageResource(R.drawable.defimg);
+							etext.setText(""); */ 
 						  
 						
 					}});			
@@ -93,13 +99,19 @@ public class ParseStarterProjectActivity extends Activity {
 					final Uri imageUri = imageReturnedIntent.getData();
 				
 					final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-		
+		Log.e("image",imageStream+"");
 					final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-					int b=selectedImage.getByteCount();
+				/*	int b=selectedImage.getByteCount();
 					ByteBuffer buffer = ByteBuffer.allocate(b); //Create a new buffer
 					selectedImage.copyPixelsToBuffer(buffer); //Move the byte data to the buffer
-
-					 array = buffer.array();
+*/
+					
+					
+					ByteArrayOutputStream stream = new ByteArrayOutputStream();
+					selectedImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+					//byte[] byteArray 
+					array= stream.toByteArray();
+					// array = buffer.array();
 					
 					imageView.setImageBitmap(selectedImage);
 			
