@@ -2,22 +2,36 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
- 
-<ImageView 
-    android:id="@+id/img1"
-    android:layout_width="10pt"
-    android:layout_height="10pt"
-    
-    ></ImageView>
+
+   
+ <com.parse.ParseImageView
+        android:id="@+id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
 <TextView 
  android:id="@+id/names"   
- android:layout_width="50pt"   
+ android:layout_width="wrap_content"   
  android:layout_height="wrap_content"
+  android:layout_alignTop="@+id/icon"
+        android:layout_toRightOf="@id/icon"
+        android:paddingTop="20dip"
+       
 
-
-android:padding="10dp"
-android:layout_marginLeft="10pt"  
+  
  android:textSize="16sp" >  
 </TextView>
+<TextView 
+    android:id="@+id/ages"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/names"
+    android:layout_toRightOf="@id/icon"
+    android:paddingTop="15dip"
+       
+     android:textSize="12sp"></TextView>
 </RelativeLayout>
 

@@ -4,5 +4,6 @@
     <string name="choose">Choose your image</string>
     <string name="upload">choose image</string>
     <string name="choosen">Your Name</string>
+    <string name="toggle">Toggle New</string>
     <color name="txtcol">#ffffff</color>
 </resources>
