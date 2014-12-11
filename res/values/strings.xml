@@ -5,5 +5,6 @@
     <string name="upload">choose image</string>
     <string name="choosen">Your Name</string>
     <string name="toggle">Toggle New</string>
+    <string name="age">Your Age</string>
     <color name="txtcol">#ffffff</color>
 </resources>

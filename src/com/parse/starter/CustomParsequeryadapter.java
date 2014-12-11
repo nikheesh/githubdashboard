@@ -1,5 +1,7 @@
 package com.parse.starter;
 
+import java.io.Serializable;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
-public class CustomParsequeryadapter extends ParseQueryAdapter<ParseObject> {
+public class CustomParsequeryadapter extends ParseQueryAdapter<ParseObject>  {
 
 	public CustomParsequeryadapter(Context context) {
 		// Use the QueryFactory to construct a PQA that will only show

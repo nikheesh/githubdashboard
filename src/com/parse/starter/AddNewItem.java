@@ -58,6 +58,8 @@ public class AddNewItem extends Activity {
 				
 		
 				 final EditText etext = (EditText) findViewById(R.id.editText1);
+				 final EditText etext1 = (EditText) findViewById(R.id.editText2);
+				 
 			/*	if(etext.getText().toString()==""){
 					Toast.makeText(getApplicationContext(), "Enter Your Name...!",10).show();
 				}
@@ -66,6 +68,8 @@ public class AddNewItem extends Activity {
 				ParseFile file = new ParseFile("img1.png", array);
 				ParseObject testobj = new ParseObject("TestObject");
 				testobj.put("name",etext.getText().toString());
+				testobj.put("age",Integer.parseInt(etext1.getText().toString()));
+				
 				testobj.put("imagefield", file);
 				testobj.saveInBackground(new SaveCallback() {
 					  @Override
@@ -101,6 +105,8 @@ public class AddNewItem extends Activity {
 					final InputStream imageStream = getContentResolver().openInputStream(imageUri);
 		Log.e("image",imageStream+"");
 					final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+					Bitmap selectedimage = Bitmap.createScaledBitmap(selectedImage, 256, 256
+							* selectedImage.getHeight() / selectedImage.getWidth(), false);
 				/*	int b=selectedImage.getByteCount();
 					ByteBuffer buffer = ByteBuffer.allocate(b); //Create a new buffer
 					selectedImage.copyPixelsToBuffer(buffer); //Move the byte data to the buffer
@@ -108,12 +114,12 @@ public class AddNewItem extends Activity {
 					
 					
 					ByteArrayOutputStream stream = new ByteArrayOutputStream();
-					selectedImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+					selectedimage.compress(Bitmap.CompressFormat.PNG, 100, stream);
 					//byte[] byteArray 
 					array= stream.toByteArray();
 					// array = buffer.array();
 					
-					imageView.setImageBitmap(selectedImage);
+					imageView.setImageBitmap(selectedimage);
 			
 				
 					

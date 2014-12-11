@@ -16,12 +16,9 @@
  android:id="@+id/names"   
  android:layout_width="wrap_content"   
  android:layout_height="wrap_content"
-  android:layout_alignTop="@+id/icon"
-        android:layout_toRightOf="@id/icon"
-        android:paddingTop="20dip"
-       
-
-  
+ android:layout_alignTop="@+id/icon"
+ android:layout_toRightOf="@id/icon"
+ android:paddingTop="20dip"
  android:textSize="16sp" >  
 </TextView>
 <TextView 
@@ -31,7 +28,6 @@
     android:layout_below="@+id/names"
     android:layout_toRightOf="@id/icon"
     android:paddingTop="15dip"
-       
-     android:textSize="12sp"></TextView>
+    android:textSize="12sp"></TextView>
 </RelativeLayout>
 

@@ -22,6 +22,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -44,11 +46,11 @@ public class Home extends Activity{
 		// Get the view from listview_main.xml
 		setContentView(R.layout.main);
 		// Execute RemoteDataTask AsyncTask
-		mainAdapter = new ParseQueryAdapter<ParseObject>(this, "TestObject");
+/*		mainAdapter = new ParseQueryAdapter<ParseObject>(this, "TestObject");
 		
 		mainAdapter.setImageKey("imagefield");
 		mainAdapter.setTextKey("name");
-		mainAdapter.setTextKey("age");
+		mainAdapter.setTextKey("age");     */
 
 		// Initialize the subclass of ParseQueryAdapter
 		adapterclass = new CustomParsequeryadapter(this);
@@ -60,6 +62,23 @@ public class Home extends Activity{
 		listView.setAdapter(adapterclass);
 		adapterclass.loadObjects();
 		adapterclass.setObjectsPerPage(8);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				
+				ParseQueryAdapter<ParseObject> parseobject=  adapterclass;
+				String id1=parseobject.getItem(position).getObjectId(); 
+				
+				Intent i=new Intent(getApplicationContext(),singleview.class);
+				i.putExtra("id1", id1);
+				//Log.d("home   id  :",id1);
+				
+				startActivity(i);
+			}
+		});
 		// Initialize toggle button
 	/*	Button toggleButton = (Button) findViewById(R.id.toggleButton);
 		toggleButton.setOnClickListener(new OnClickListener() {

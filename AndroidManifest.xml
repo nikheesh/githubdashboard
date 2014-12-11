@@ -28,7 +28,8 @@
             
             
         </activity>
-         <activity android:name=".SingleItemView"></activity>
+         
+         <activity android:name=".singleview"></activity>
             
     </application>
 
