@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/passtext"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/password"
+        android:layout_alignBottom="@+id/password"
+        android:layout_toRightOf="@+id/password"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/usetext"
+        android:layout_alignBottom="@+id/usetext"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="23dp"
+        android:ems="10"
+        android:text="Username" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username"
+        android:layout_below="@+id/usetext"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/usetext"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/passtext"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/passtext"
+        android:layout_marginTop="93dp"
+        android:ems="10" >
+ <requestFocus />
+       
+    </EditText>
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignRight="@+id/passtext"
+        android:layout_below="@+id/passtext"
+        android:layout_marginTop="53dp"
+        android:text="Sign In" />
+
+    <TextView
+        android:id="@+id/signup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:text="New user? Signup here" />
+
+</RelativeLayout>

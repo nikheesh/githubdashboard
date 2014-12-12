@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ParseStarterProject</string>
+    <string name="app_name">Profile Creation</string>
     <string name="choose">Choose your image</string>
     <string name="upload">choose image</string>
     <string name="choosen">Your Name</string>
+    <string name="toggle">Toggle New</string>
+    <string name="age">Your Age</string>
+    <color name="txtcol">#ffffff</color>
 </resources>
