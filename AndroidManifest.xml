@@ -30,6 +30,8 @@
         </activity>
          
          <activity android:name=".singleview"></activity>
+         <activity android:name=".LogIn"></activity>
+         <activity android:name=".SignUp"></activity>
             
     </application>
 

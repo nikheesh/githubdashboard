@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,16 +19,31 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ProgressCallback;
 import com.parse.SaveCallback;
 
 public class AddNewItem extends Activity {
 	private final int SELECT_PHOTO = 1;
 	private ImageView imageView;
 	byte[] array;
+	protected ProgressDialog proDialog;
+	protected void startLoading() {
+	    proDialog = new ProgressDialog(this);
+	    proDialog.setMessage("Saving Please Wait.....");
+	    proDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+	    proDialog.setCancelable(false);
+	    proDialog.show();
+	}
+
+	protected void stopLoading() {
+	    proDialog.dismiss();
+	    proDialog = null;
+	}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +65,17 @@ public class AddNewItem extends Activity {
 			}
 		});
         
-        Button savedata = (Button) findViewById(R.id.button1);
+        final Button savedata = (Button) findViewById(R.id.button1);
+     //   final ProgressBar pb=(ProgressBar)findViewById(R.id.progressBar1);
+
         
        savedata.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View view) {	
 				
-		
+		     savedata.setEnabled(false);
+		     startLoading();
 				 final EditText etext = (EditText) findViewById(R.id.editText1);
 				 final EditText etext1 = (EditText) findViewById(R.id.editText2);
 				 
@@ -71,9 +90,11 @@ public class AddNewItem extends Activity {
 				testobj.put("age",Integer.parseInt(etext1.getText().toString()));
 				
 				testobj.put("imagefield", file);
+			
 				testobj.saveInBackground(new SaveCallback() {
 					  @Override
 					public void done(com.parse.ParseException e) {
+						  stopLoading();
 						  Toast.makeText(getApplicationContext(), "Successfully uploaded..!",10).show();
 						  Intent i = new Intent(getApplicationContext(), Home.class);
 						  startActivity(i);
@@ -84,7 +105,9 @@ public class AddNewItem extends Activity {
 							etext.setText(""); */ 
 						  
 						
-					}});			
+					}
+					  
+				});			
 				
 			//	}
 			}

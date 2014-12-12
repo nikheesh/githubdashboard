@@ -109,7 +109,7 @@ public class Home extends Activity{
  public boolean onOptionsItemSelected(MenuItem item){
 	 switch(item.getItemId())
 	 {case R.id.create : 
-		  Intent i = new Intent(getApplicationContext(),AddNewItem.class);
+		  Intent i = new Intent(getApplicationContext(),LogIn.class);
 		  startActivity(i);
 		  return true;
 	 case R.id.back:
