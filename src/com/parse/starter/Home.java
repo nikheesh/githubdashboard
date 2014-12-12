@@ -39,12 +39,14 @@ public class Home extends Activity{
 	private ParseQueryAdapter<ParseObject> mainAdapter;
 	private CustomParsequeryadapter adapterclass;
 	private ListView listView;
-
+	protected ProgressDialog proDialog;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Get the view from listview_main.xml
 		setContentView(R.layout.main);
+		
 		// Execute RemoteDataTask AsyncTask
 /*		mainAdapter = new ParseQueryAdapter<ParseObject>(this, "TestObject");
 		
@@ -59,9 +61,12 @@ public class Home extends Activity{
 		listView = (ListView) findViewById(R.id.listview);
 	//	listView.setAdapter(mainAdapter);
 	//	mainAdapter.loadObjects();
-		listView.setAdapter(adapterclass);
 		adapterclass.loadObjects();
-		adapterclass.setObjectsPerPage(8);
+		
+		//adapterclass.setObjectsPerPage(8);
+		adapterclass.setAutoload(true);
+		listView.setAdapter(adapterclass);
+		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override
